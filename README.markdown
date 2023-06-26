@@ -1,4 +1,4 @@
-this is an example for hook              
+             
 a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) . To see what the game does, run `mvn install` as described above, then go to the gameoflife-web directory and run `mvn j etty:run`. The application will be running on http://localhost:9090.   
      
 ## Running the acceptance tests  tests       
