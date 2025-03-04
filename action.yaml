@@ -1,0 +1,10 @@
+- name: Checkout game-of-life repository
+  uses: actions/checkout@v2
+  with:
+    repository: mani5a3/game-of-life
+    path: game-of-life
+
+- name: Build and Test
+  run: |
+    cd game-of-life
+    # Add build and test commands here
