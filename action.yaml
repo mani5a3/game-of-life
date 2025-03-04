@@ -7,4 +7,4 @@
 - name: Build and Test
   run: |
     cd game-of-life
-    # Add build and test commands here
+    mvn package
