@@ -2,10 +2,11 @@ name: test_github_actions_workflow
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
+  workflow_dispatch:
 
 jobs:
   testjob:
