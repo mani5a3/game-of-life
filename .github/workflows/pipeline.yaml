@@ -35,8 +35,14 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: building the docker image
-      run: |
-        docker build -t mytomcat:$GITHUB_SHA ./gameoflife-web
-        docker images
-      shell: bash
+    # - name: building the docker image
+    #   run: |
+    #     docker build -t mytomcat:$GITHUB_SHA ./gameoflife-web
+    #     docker images
+    #   shell: bash
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./gameoflife-web
+        push: true
+        tags: mani5a3/mytomcat_$GITHUB_SHA:latest
