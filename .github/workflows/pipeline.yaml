@@ -45,4 +45,4 @@ jobs:
       with:
         context: ./gameoflife-web
         push: true
-        tags: mani5a3/mytomcat_${{ env.GITHUB_SHA }}:latest
+        tags: mani5a3/github-action-tomcat-war:latest
