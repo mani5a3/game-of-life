@@ -1,0 +1,25 @@
+name: github_ci
+on:
+  push:
+    branches: [ "main" ]
+  pull_request: 
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the repository
+      uses: actions/checkout@v4
+    - name: install java8
+      uses: actions/setup-java@v4
+      with: 
+        java-version: '8'
+        distribution: 'temurin'
+        cache: 'maven'
+    - name: build the code with maven and generate a package
+      run: mvn clean package
+    - name: upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        path: ./gameoflife-web/target/*.war
