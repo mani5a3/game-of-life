@@ -1,4 +1,5 @@
-# BUILD/WORKFLOW STATUS BADGE: ![](https://github.com/mani5a3/game-of-life/workflows/github_ci/badge.svg?branch=master)
+# BUILD/WORKFLOW STATUS BADGE: 
+![](https://github.com/mani5a3/game-of-life/workflows/github_ci/badge.svg?branch=master)
 
 a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) . To see what the game does, run `mvn install` as described above, then go to the gameoflife-web directory and run `mvn j etty:run`. The application will be running on http://localhost:9090.   
 
