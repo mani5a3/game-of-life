@@ -1,0 +1,17 @@
+name: "Run Java CI"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  reuse-java-worflow:
+    uses: ./github/workflows/java-maven-gradle-worflow.yml
+    with:
+      java-version: "8"
+      build-tool: "maven"
+      build-goals: "clean install"
+    secrets:
+      Sonar_username: admin
+      Sonar_Password: admin
+      JFROG_USERNAME: admin
+      JFROG_PASSWORD: password
