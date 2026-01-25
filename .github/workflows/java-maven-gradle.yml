@@ -1,4 +1,4 @@
-name: "Run Java CI"
+name: "Java_Maven_Gradle_Worflow"
 
 on:
   workflow_dispatch:
