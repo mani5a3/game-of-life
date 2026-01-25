@@ -1,4 +1,4 @@
-name: "Java_Maven_Gradle_Worflow"
+name: "Java_Maven_Gradle_Workflow"
 
 on:
   workflow_dispatch:
