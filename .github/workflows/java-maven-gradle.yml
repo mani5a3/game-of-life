@@ -9,7 +9,7 @@ jobs:
     with:
       java_version: "8"
       build_tool: "maven"
-      build_goals: "clean install"
+      maven_goals: "clean install"
     secrets:
       Sonar_username: admin
       Sonar_Password: admin
