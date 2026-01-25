@@ -7,9 +7,9 @@ jobs:
   reuse-java-worflow:
     uses: mani5a3/github_actions_poc/.github/workflows/java-maven-gradle-worflow.yaml@main
     with:
-      java-version: "8"
-      build-tool: "maven"
-      build-goals: "clean install"
+      java_version: "8"
+      build_tool: "maven"
+      build_goals: "clean install"
     secrets:
       Sonar_username: admin
       Sonar_Password: admin
