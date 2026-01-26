@@ -10,6 +10,8 @@ jobs:
       java_version: "8"
       build_tool: "maven"
       maven_goals: "clean install"
+      runner: "windows"
+# secrets: inherit pulls secrets from the calling workflow’s context and makes them available to the reusable workflow.
     secrets:
       Jfrog_Username: "admin"
       Jfrog_Password: "password"
