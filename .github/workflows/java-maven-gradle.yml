@@ -5,7 +5,7 @@ on:
 
 jobs:
   reuse-java-worflow:
-    uses: mani5a3/github_actions_poc/.github/workflows/java-maven-gradle-worflow.yaml@main
+    uses: mani5a3/github_actions_poc/.github/workflows/java-maven-gradle-workflow.yaml@main
     with:
       java_version: "8"
       build_tool: "maven"
