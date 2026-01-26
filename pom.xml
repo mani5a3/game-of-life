@@ -76,37 +76,37 @@
                 </executions>
             </plugin>
             <!-- CODE COVERAGE -->
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.10</version> <!-- upgrade to latest -->
-    <executions>
-        <!-- Attach agent before tests -->
-        <execution>
-            <id>prepare-agent</id>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.10</version>
+            <executions>
+                <!-- attach agent to all modules -->
+                <execution>
+                    <id>prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
 
-        <!-- Generate XML report for SonarQube -->
-        <execution>
-            <id>report</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-            <configuration>
-                <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
-                <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-                <reports>
-                    <xml>true</xml>
-                    <html>true</html>
-                </reports>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+                <!-- generate aggregated report for SonarQube -->
+                <execution>
+                    <id>report-aggregate</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>report-aggregate</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
+                        <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                        <reports>
+                            <xml>true</xml>   <!-- Required for SonarQube -->
+                            <html>true</html>  <!-- Optional -->
+                        </reports>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
 
 
             <plugin>
