@@ -27,6 +27,24 @@
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
     <build>
+         <pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.13</version>
+        <executions>
+          <!-- This attaches JaCoCo agent to all test runs -->
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </pluginManagement>
         <plugins>
 
             
@@ -92,32 +110,26 @@
             </plugin>
             <!-- CODE COVERAGE -->
             <plugin>
-  <groupId>org.jacoco</groupId>
-  <artifactId>jacoco-maven-plugin</artifactId>
-  <version>0.8.13</version>
-  <executions>
-    <execution>
-      <id>prepare-agent</id>
-      <goals>
-        <goal>prepare-agent</goal>
-      </goals>
-    </execution>
+  
 
-    <!-- This merges coverage from all modules -->
-    <execution>
-      <id>report-aggregate</id>
-      <phase>verify</phase>
-      <goals>
-        <goal>report-aggregate</goal>
-      </goals>
-      <configuration>
-        <formats>
-          <format>XML</format>
-        </formats>
-      </configuration>
-    </execution>
-  </executions>
-</plugin>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <executions>
+        <execution>
+          <id>report-aggregate</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>report-aggregate</goal>
+          </goals>
+          <configuration>
+            <formats>
+              <format>XML</format>
+            </formats>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
 
 
 
