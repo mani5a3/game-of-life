@@ -10,8 +10,9 @@ jobs:
       java_version: "8"
       build_tool: "maven"
       maven_goals: "clean install"
+      runner:  "windows"
     secrets:
-      Sonar_username: admin
+      Sonar_Username: admin
       Sonar_Password: admin
-      JFROG_USERNAME: admin
-      JFROG_PASSWORD: password
+      Jfrog_Username: admin
+      Jfrog_Password: password
