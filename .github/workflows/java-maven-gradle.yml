@@ -11,7 +11,6 @@ jobs:
       build_tool: "maven"
       maven_goals: "clean install"
       runner:  "windows"
-    secrets:
       Sonar_Username: admin
       Sonar_Password: admin
       Jfrog_Username: admin
