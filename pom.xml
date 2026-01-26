@@ -27,55 +27,7 @@
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
     <build>
-    <pluginManagement>
         <plugins>
-            <!-- Attach JaCoCo agent to ALL modules -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.13</version>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </pluginManagement>
-
-    <plugins>
-        <!-- Create ONE merged coverage report -->
-        <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>report-aggregate</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report-aggregate</goal>
-                    </goals>
-                    <configuration>
-                        <formats>
-                            <format>XML</format>
-                        </formats>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-
-        <plugins>
-            
-             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.11.0.3922</version>
-            </plugin>
-               
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -86,7 +38,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>2.11</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -125,28 +77,26 @@
             </plugin>
             <!-- CODE COVERAGE -->
             <plugin>
-  
-
-    <plugin>
-      <groupId>org.jacoco</groupId>
-      <artifactId>jacoco-maven-plugin</artifactId>
-      <executions>
-        <execution>
-          <id>report-aggregate</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>report-aggregate</goal>
-          </goals>
-          <configuration>
-            <formats>
-              <format>XML</format>
-            </formats>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-
-
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.2.201409121644</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
@@ -354,6 +304,11 @@
                                 <plugin>
                                     <artifactId>maven-project-info-reports-plugin</artifactId>
                                     <version>2.7</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jacoco</groupId>
+                                    <artifactId>jacoco-maven-plugin</artifactId>
+                                    <version>0.7.2.201409121644</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
