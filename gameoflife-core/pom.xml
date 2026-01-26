@@ -11,6 +11,15 @@
     <packaging>jar</packaging>
     <name>gameoflife-core</name>
     <url>${HUDSON_URL}</url>
+    <build>
+  <plugins>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+    </plugin>
+  </plugins>
+</build>
+
     <reporting>
         <plugins>
             <plugin>
@@ -56,14 +65,6 @@
                 <version>2.6</version>
             </plugin>
         </plugins>
-    <build>
-  <plugins>
-    <plugin>
-      <groupId>org.jacoco</groupId>
-      <artifactId>jacoco-maven-plugin</artifactId>
-    </plugin>
-  </plugins>
-</build>
 
     </reporting>
 </project>
