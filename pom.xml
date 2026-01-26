@@ -92,26 +92,33 @@
             </plugin>
             <!-- CODE COVERAGE -->
             <plugin>
-              <groupId>org.jacoco</groupId>
-              <artifactId>jacoco-maven-plugin</artifactId>
-              <version>0.8.13</version> <!-- use a newer version -->
-              <executions>
-                <execution>
-                  <id>prepare-agent</id>
-                  <goals><goal>prepare-agent</goal></goals>
-                </execution>
-                <execution>
-                  <id>report</id>
-                  <phase>verify</phase>
-                  <goals><goal>report</goal></goals>
-                  <configuration>
-                    <formats>
-                      <format>XML</format>
-                    </formats>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.13</version>
+  <executions>
+    <execution>
+      <id>prepare-agent</id>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+    </execution>
+
+    <!-- This merges coverage from all modules -->
+    <execution>
+      <id>report-aggregate</id>
+      <phase>verify</phase>
+      <goals>
+        <goal>report-aggregate</goal>
+      </goals>
+      <configuration>
+        <formats>
+          <format>XML</format>
+        </formats>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
 
 
             <plugin>
