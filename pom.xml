@@ -26,8 +26,40 @@
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
+    
     <build>
         <plugins>
+  <plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.10</version>
+  <inherited>true</inherited>
+  <executions>
+    <execution>
+      <id>prepare-agent</id>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+    </execution>
+
+    <execution>
+      <id>report-aggregate</id>
+      <phase>verify</phase>
+      <goals>
+        <goal>report-aggregate</goal>
+      </goals>
+      <configuration>
+        <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
+        <reports>
+          <xml>true</xml>
+          <html>true</html>
+        </reports>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
+
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -38,7 +70,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
+                <version>3.2.5</version>
                 <configuration>
                      <skipTests>false</skipTests>
                 </configuration>
@@ -75,38 +107,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- CODE COVERAGE -->
-        <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.10</version>
-            <executions>
-                <!-- attach agent to all modules -->
-                <execution>
-                    <id>prepare-agent</id>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-
-                <!-- generate aggregated report for SonarQube -->
-                <execution>
-                    <id>report-aggregate</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report-aggregate</goal>
-                    </goals>
-                    <configuration>
-                        <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
-                        <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-                        <reports>
-                            <xml>true</xml>   <!-- Required for SonarQube -->
-                            <html>true</html>  <!-- Optional -->
-                        </reports>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+         
 
 
             <plugin>
